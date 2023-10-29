@@ -9,6 +9,8 @@
 
 #include <assert.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MHM_NONE SIZE_MAX       /* Used when indexof key was not found */
@@ -20,6 +22,11 @@ typedef struct mhm {            /* Hash Map structure */
 	size_t    _used;        /* Number of used keys */
 	size_t    _siz;         /* Size of _key and _buf arrays */
 	char    **_key;         /* Buffer with pointers to key strings */
+	/* TODO(irek): Make it work with any data type so it is
+	 * convenient when you like to us ints or strings with
+	 * predefined size itp.  It should be possible to just have
+	 * and pointer to a memory and knowledge of single item size
+	 * to make it work. */
 	void    **_buf;         /* Buffer with pointers to values */
 	Mhm_Hash  _hash;        /* Hashing function */
 } Mhm;
@@ -30,14 +37,14 @@ typedef struct mhm {            /* Hash Map structure */
  * non 0 value on error. */
 int mhm_init(Mhm *hm, size_t siz, Mhm_Hash hash);
 
-/* In HS hash map store VALUE pointer to any value under KEY.  Return
+/* In HM hash map store VALUE pointer to any value under KEY.  Return
  * non 0 value on success. */
 int mhm_set(Mhm *hm, char *key, void *value);
 
-/* From HS hash map get KEY item value pointer. */
+/* From HM hash map get KEY item value pointer. */
 void *mhm_get(Mhm *hm, char *key);
 
-/* From HS hash map delete KET item*/
+/* From HM hash map delete KET item*/
 void mhm_del(Mhm *hm, char *key);
 
 /* Return non 0 value if HM hash map has KEY item. */
