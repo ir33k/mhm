@@ -5,7 +5,7 @@
 TEST("Basics")
 {
 	Mhm hm;
-	OK(mhm_init(&hm, 100, mhm_hash_djb2) == 0);
+	OK(mhm_init(&hm, 64, mhm_hash_djb2) == 0);
 	OK(mhm_set(&hm, "aaa", "value0") == 0);
 	OK(mhm_set(&hm, "bbb", "value1") == 0);
 	OK(mhm_set(&hm, "ccc", "value2") == 0);
