@@ -1,5 +1,4 @@
-/**
- * My Hash Map.
+/* My Hash Map.
  * See licence at the end of the file.
  *
  * Characteristics:
@@ -120,7 +119,7 @@ int mhm_set(Mhm *hm, char *key, void *value);
 /* From HM hash map get KEY item value pointer. */
 void *mhm_get(Mhm *hm, char *key);
 
-/* From HM hash map delete KET item*/
+/* From HM hash map delete KET item. */
 void mhm_del(Mhm *hm, char *key);
 
 /* Return non 0 value if HM hash map has KEY item. */
@@ -201,12 +200,9 @@ mhm_del(Mhm *hm, char *key)
 int
 mhm_has(Mhm *hm, char *key)
 {
-	size_t i;
 	assert(hm);
 	assert(key);
-	i = _mhm_indexof(hm, key);
-	if (i == MHM_NONE) return 0;
-	return 1;
+	return _mhm_indexof(hm, key) != MHM_NONE;
 }
 
 size_t
