@@ -18,9 +18,12 @@
  *
  * Usage:
  *
+ *	#define MHM_IMPLEMENTATION      // Define once in main file
+ *	#include "mhm.h"
+ *
  *	// Hash Map structure.  Does not require initialization with
- *	// 0 like "Mhm hm = {0}" as the mhm_init() will define struct
- *	// all values anyway.
+ *	// 0 like "Mhm hm = {0}" as the mhm_init() will define all
+ *	// structure values anyway.
  *	Mhm hm;
  *
  *	// Initialize Hash Map with 256 slots and djb2 hash function.
@@ -148,11 +151,11 @@ mhm_init(Mhm *hm, size_t siz, Mhm_Hash hash)
 	assert(hash);
 	hm->_used = 0;
 	hm->_siz = siz;
+	hm->_hash = hash;
 	if ((hm->_key = malloc(siz * sizeof(*hm->_key))) == 0) return 1;
 	if ((hm->_buf = malloc(siz * sizeof(*hm->_buf))) == 0) return 2;
 	memset(hm->_key, 0, siz);
 	memset(hm->_buf, 0, siz);
-	hm->_hash = hash;
 	return 0;
 }
 
