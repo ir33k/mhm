@@ -1,5 +1,5 @@
 /* My Hash Map.
- * See licence at the end of the file.
+ * See licence at the end of the file.                         (._. )
  *
  * Characteristics:
  *
