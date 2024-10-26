@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-set -ex # Stop on first error and log all commnads
 CFLAGS="-Wall -Wextra -Wshadow -Wmissing-declarations -Wswitch-enum -pedantic -std=c89 -ggdb"
+set -ex # Stop on first error and log all commnads
 cc $CFLAGS -o mhm.t mhm.t.c

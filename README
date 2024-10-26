@@ -1,2 +1,7 @@
-My Hash Map as single header C library.
-Documentation and licence is in mhm.h.
+My Hash Map using Open addressing [1] with Linear probing [2] and Lazy
+deletion [3].  Documentation and licence can be found in mhm.h.
+
+[1] https://en.wikipedia.org/wiki/Open_addressing
+[2] https://en.wikipedia.org/wiki/Linear_probing
+[3] https://en.wikipedia.org/wiki/Lazy_deletion
+

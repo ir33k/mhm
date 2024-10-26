@@ -4,7 +4,7 @@
 
 TEST("Basics")
 {
-	Mhm hm;
+	mhm_t hm;
 	OK(mhm_init(&hm, 64, mhm_hash_djb2) == 0);
 	OK(mhm_set(&hm, "aaa", "value0") == 0);
 	OK(mhm_set(&hm, "bbb", "value1") == 0);
@@ -32,7 +32,7 @@ TEST("Basics")
 
 TEST("Collisions")
 {
-	Mhm hm;
+	mhm_t hm;
 	/* Force collisions by using dumb add hashing function and
 	 * keys that will produce the same hash value of 100. */
 	OK(mhm_init(&hm, 100, mhm_hash_add) == 0);
